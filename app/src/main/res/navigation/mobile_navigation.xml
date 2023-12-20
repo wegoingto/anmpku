@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.example.what.view.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/view_menu"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/homeToCart"
+            app:destination="@id/nav_cart" />
+        <argument
+            android:name="table"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_cart"
+        android:name="com.example.what.view.CartFragment"
+        android:label="Cart"
+        tools:layout="@layout/fragment_cart" >
+        <argument
+            android:name="table"
+            app:argType="integer" />
+        <action
+            android:id="@+id/cartToHome"
+            app:destination="@id/nav_home" />
+    </fragment>
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="com.example.what.view.OrderFragment"
+        android:label="Orders"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/nav_account"
+        android:name="com.example.what.view.AccountFragment"
+        android:label="Account"
+        tools:layout="@layout/fragment_cart" />
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.what.view.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <argument android:name="argsMenu"
+            app:argType="com.example.what.model.Menu" />
+        <action
+            android:id="@+id/menuToHome"
+            app:destination="@id/nav_home" />
+        <argument
+            android:name="table"
+            app:argType="integer" />
+    </fragment>
+</navigation>
